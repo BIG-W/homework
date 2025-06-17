@@ -26,3 +26,19 @@ void fill_matrix_zeros(long long int *matrix, int rows, int cols) {
         }
     }
 }
+
+void hd_fill_matrix_random(float *matrix, int rows, int cols) {
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < cols; j++) {
+            matrix[i * cols + j] = rand() % 4096; // Random double between 0 and 4095
+        }
+    }
+}
+
+void hd_int_fill_matrix_random(int *matrix, int rows, int cols) {
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < cols; j++) {
+            matrix[i * cols + j] = rand() % 4096; // Random double between 0 and 4095
+        }
+    }
+}
