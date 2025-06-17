@@ -1,0 +1,224 @@
+#-----------------------------------------------------------
+# Vivado v2024.2 (64-bit)
+# SW Build 5239630 on Fri Nov 08 22:35:27 MST 2024
+# IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
+# SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
+# Start of session at: Fri Jun 13 22:32:51 2025
+# Process ID         : 2396
+# Current directory  : D:/ACA_Group9/hd-aca-25/work
+# Command line       : vivado.exe -gui_launcher_event rodinguilauncherevent9760 D:\ACA_Group9\hd-aca-25\work\work.xpr
+# Log file           : D:/ACA_Group9/hd-aca-25/work/vivado.log
+# Journal file       : D:/ACA_Group9/hd-aca-25/work\vivado.jou
+# Running On         : Eins
+# Platform           : Windows Server 2016 or Windows 10
+# Operating System   : 22631
+# Processor Detail   : 11th Gen Intel(R) Core(TM) i5-11400H @ 2.70GHz
+# CPU Frequency      : 2688 MHz
+# CPU Physical cores : 6
+# CPU Logical cores  : 12
+# Host memory        : 17023 MB
+# Swap memory        : 4824 MB
+# Total Virtual      : 21848 MB
+# Available Virtual  : 11438 MB
+#-----------------------------------------------------------
+start_gui
+open_project D:/ACA_Group9/hd-aca-25/work/work.xpr
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu208ld:part0:2.0 available at F:/vivado/Vivado/2024.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu208ld/production/2.0/board.xml as part xczu58dr-fsvg1517-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu216ld:part0:2.0 available at F:/vivado/Vivado/2024.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu216ld/production/2.0/board.xml as part xczu59dr-ffvf1760-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu670ld:part0:1.0 available at F:/vivado/Vivado/2024.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu670ld/1.0/board.xml as part xczu57dr-fsve1156-2-i specified in board_part file is either invalid or not available
+INFO: [filemgmt 56-3] Default IP Output Path : Could not find the directory 'D:/ACA_Group9/hd-aca-25/work/work.gen/sources_1'.
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'F:/vivado/Vivado/2024.2/data/ip'.
+open_project: Time (s): cpu = 00:00:15 ; elapsed = 00:00:19 . Memory (MB): peak = 1708.719 ; gain = 498.387
+update_compile_order -fileset sources_1
+open_bd_design {D:/ACA_Group9/hd-aca-25/bd/design_1/design_1.bd}
+Reading block design file <D:/ACA_Group9/hd-aca-25/bd/design_1/design_1.bd>...
+Adding component instance block -- xilinx.com:ip:clk_wiz:6.0 - clk_wiz_0
+Adding component instance block -- xilinx.com:ip:processing_system7:5.5 - processing_system7_0
+Adding component instance block -- xilinx.com:ip:proc_sys_reset:5.0 - proc_sys_reset_0
+Adding component instance block -- xilinx.com:ip:mdm:3.2 - mdm_0
+Adding component instance block -- xilinx.com:ip:microblaze:11.0 - microblaze_0
+Adding component instance block -- xilinx.com:ip:axi_interconnect:2.1 - axi_interconnect_0
+Adding component instance block -- xilinx.com:ip:axi_crossbar:2.1 - xbar
+Adding component instance block -- xilinx.com:ip:axi_timer:2.0 - axi_timer_0
+Adding component instance block -- xilinx.com:ip:axi_gpio:2.0 - axi_gpio_0
+Adding component instance block -- xilinx.com:ip:lmb_v10:3.0 - dlmb_v10
+Adding component instance block -- xilinx.com:ip:lmb_v10:3.0 - ilmb_v10
+Adding component instance block -- xilinx.com:ip:lmb_bram_if_cntlr:4.0 - dlmb_bram_if_cntlr
+Adding component instance block -- xilinx.com:ip:lmb_bram_if_cntlr:4.0 - ilmb_bram_if_cntlr
+Adding component instance block -- xilinx.com:ip:blk_mem_gen:8.4 - lmb_bram
+Successfully read diagram <design_1> from block design file <D:/ACA_Group9/hd-aca-25/bd/design_1/design_1.bd>
+open_bd_design: Time (s): cpu = 00:00:02 ; elapsed = 00:00:09 . Memory (MB): peak = 1781.246 ; gain = 56.027
+delete_bd_objs [get_bd_nets axi_timer_0_pwm0]
+delete_bd_objs [get_bd_intf_nets axi_gpio_0_GPIO2]
+delete_bd_objs [get_bd_intf_ports gpio_rtl_0]
+startgroup
+set_property CONFIG.C_IS_DUAL {0} [get_bd_cells axi_gpio_0]
+endgroup
+apply_bd_automation -rule xilinx.com:bd_rule:board -config { Manual_Source {Auto}}  [get_bd_intf_pins axi_gpio_0/GPIO]
+INFO: [BoardRule 102-8] create_bd_intf_port -mode Master -vlnv xilinx.com:interface:gpio_rtl:1.0 gpio_rtl_0
+INFO: [BoardRule 102-9] connect_bd_intf_net /gpio_rtl_0 /axi_gpio_0/GPIO
+save_bd_design
+Wrote  : <D:\ACA_Group9\hd-aca-25\bd\design_1\design_1.bd> 
+Wrote  : <D:/ACA_Group9/hd-aca-25/bd/design_1/ui/bd_1f5defd0.ui> 
+reset_run design_1_axi_interconnect_0_imp_xbar_0_synth_1
+reset_run design_1_axi_gpio_0_0_synth_1
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file D:/ACA_Group9/hd-aca-25/work/work.srcs/utils_1/imports/synth_1/design_1_wrapper.dcp with file D:/ACA_Group9/hd-aca-25/synth_1/design_1_wrapper.dcp
+launch_runs synth_1 -jobs 6
+WARNING: [BD 41-2121] Port clk125 associated reset port areset does not exist
+WARNING: [BD 5-700] No address spaces matched 'get_bd_addr_spaces -of_objects /processing_system7_0 -filter {path == /processing_system7_0/Data}'
+WARNING: [BD 5-699] No address segments matched 'get_bd_addr_segs -of_objects {}'
+WARNING: [BD 5-699] No address segments matched 'get_bd_addr_segs -addressed -of_object /axi_interconnect_0/S01_AXI'
+WARNING: [BD 5-699] No address segments matched 'get_bd_addr_segs -addressable -of_object /axi_interconnect_0/S01_AXI'
+WARNING: [BD 5-699] No address segments matched 'get_bd_addr_segs -addressing -of_object /axi_interconnect_0/S01_AXI'
+WARNING: [BD 5-699] No address segments matched 'get_bd_addr_segs -addressed -of_object /axi_interconnect_0/S02_AXI'
+WARNING: [BD 5-699] No address segments matched 'get_bd_addr_segs -addressable -of_object /axi_interconnect_0/S02_AXI'
+WARNING: [BD 5-699] No address segments matched 'get_bd_addr_segs -addressing -of_object /axi_interconnect_0/S02_AXI'
+WARNING: [filemgmt 56-443] The ECC Algorithm string is empty. Setting the Memory Map to default ECC value to ECC_NONE.
+WARNING: [filemgmt 56-443] The ECC Algorithm string is empty. Setting the Memory Map to default ECC value to ECC_NONE.
+INFO: [xilinx.com:ip:clk_wiz:6.0-1] /clk_wiz_0 clk_wiz propagate
+INFO: [xilinx.com:ip:microblaze:11.0-9] /microblaze_0: Setting C_BASE_VECTORS to 0x00000000.
+Wrote  : <D:\ACA_Group9\hd-aca-25\bd\design_1\design_1.bd> 
+Wrote  : <D:/ACA_Group9/hd-aca-25/bd/design_1/ui/bd_1f5defd0.ui> 
+Verilog Output written to : D:/ACA_Group9/hd-aca-25/bd/design_1/synth/design_1.v
+Verilog Output written to : D:/ACA_Group9/hd-aca-25/bd/design_1/sim/design_1.v
+Verilog Output written to : D:/ACA_Group9/hd-aca-25/bd/design_1/hdl/design_1_wrapper.v
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_gpio_0 .
+Exporting to file D:/ACA_Group9/hd-aca-25/bd/design_1/hw_handoff/design_1.hwh
+Generated Hardware Definition File D:/ACA_Group9/hd-aca-25/bd/design_1/synth/design_1.hwdef
+INFO: [IP_Flow 19-6924] IPCACHE: Running cache check for IP inst: design_1_axi_gpio_0_0
+INFO: [IP_Flow 19-6922] IPCACHE: Exporting cached entry 83c4c680ffe5f93c to dir: d:/ACA_Group9/hd-aca-25/bd/design_1/ip/design_1_axi_gpio_0_0
+INFO: [IP_Flow 19-6928] IPCACHE: copied cached file d:/ACA_Group9/hd-aca-25/work/work.cache/ip/2024.2/8/3/83c4c680ffe5f93c/design_1_axi_gpio_0_0.dcp to d:/ACA_Group9/hd-aca-25/bd/design_1/ip/design_1_axi_gpio_0_0/design_1_axi_gpio_0_0.dcp.
+INFO: [IP_Flow 19-6926] IPCACHE: added file to list for BOM: d:/ACA_Group9/hd-aca-25/bd/design_1/ip/design_1_axi_gpio_0_0/design_1_axi_gpio_0_0.dcp
+INFO: [IP_Flow 19-6928] IPCACHE: copied cached file d:/ACA_Group9/hd-aca-25/work/work.cache/ip/2024.2/8/3/83c4c680ffe5f93c/design_1_axi_gpio_0_0_sim_netlist.v to d:/ACA_Group9/hd-aca-25/bd/design_1/ip/design_1_axi_gpio_0_0/design_1_axi_gpio_0_0_sim_netlist.v.
+INFO: [IP_Flow 19-6926] IPCACHE: added file to list for BOM: d:/ACA_Group9/hd-aca-25/bd/design_1/ip/design_1_axi_gpio_0_0/design_1_axi_gpio_0_0_sim_netlist.v
+INFO: [IP_Flow 19-6928] IPCACHE: copied cached file d:/ACA_Group9/hd-aca-25/work/work.cache/ip/2024.2/8/3/83c4c680ffe5f93c/design_1_axi_gpio_0_0_sim_netlist.vhdl to d:/ACA_Group9/hd-aca-25/bd/design_1/ip/design_1_axi_gpio_0_0/design_1_axi_gpio_0_0_sim_netlist.vhdl.
+INFO: [IP_Flow 19-6926] IPCACHE: added file to list for BOM: d:/ACA_Group9/hd-aca-25/bd/design_1/ip/design_1_axi_gpio_0_0/design_1_axi_gpio_0_0_sim_netlist.vhdl
+INFO: [IP_Flow 19-6928] IPCACHE: copied cached file d:/ACA_Group9/hd-aca-25/work/work.cache/ip/2024.2/8/3/83c4c680ffe5f93c/design_1_axi_gpio_0_0_stub.v to d:/ACA_Group9/hd-aca-25/bd/design_1/ip/design_1_axi_gpio_0_0/design_1_axi_gpio_0_0_stub.v.
+INFO: [IP_Flow 19-6926] IPCACHE: added file to list for BOM: d:/ACA_Group9/hd-aca-25/bd/design_1/ip/design_1_axi_gpio_0_0/design_1_axi_gpio_0_0_stub.v
+INFO: [IP_Flow 19-6928] IPCACHE: copied cached file d:/ACA_Group9/hd-aca-25/work/work.cache/ip/2024.2/8/3/83c4c680ffe5f93c/design_1_axi_gpio_0_0_stub.vhdl to d:/ACA_Group9/hd-aca-25/bd/design_1/ip/design_1_axi_gpio_0_0/design_1_axi_gpio_0_0_stub.vhdl.
+INFO: [IP_Flow 19-6926] IPCACHE: added file to list for BOM: d:/ACA_Group9/hd-aca-25/bd/design_1/ip/design_1_axi_gpio_0_0/design_1_axi_gpio_0_0_stub.vhdl
+INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP design_1_axi_gpio_0_0, cache-ID = 83c4c680ffe5f93c; cache size = 12.911 MB.
+[Fri Jun 13 22:38:05 2025] Launched design_1_axi_interconnect_0_imp_xbar_0_synth_1...
+Run output will be captured here: D:/ACA_Group9/hd-aca-25/design_1_axi_interconnect_0_imp_xbar_0_synth_1/runme.log
+[Fri Jun 13 22:38:05 2025] Launched synth_1...
+Run output will be captured here: D:/ACA_Group9/hd-aca-25/synth_1/runme.log
+launch_runs: Time (s): cpu = 00:00:06 ; elapsed = 00:00:17 . Memory (MB): peak = 1867.160 ; gain = 34.465
+launch_runs impl_1 -jobs 6
+INFO: [IP_Flow 19-6924] IPCACHE: Running cache check for IP inst: design_1_axi_interconnect_0_imp_xbar_0
+INFO: [IP_Flow 19-6922] IPCACHE: Exporting cached entry 44cea0802e3cd205 to dir: d:/ACA_Group9/hd-aca-25/bd/design_1/ip/design_1_axi_interconnect_0_imp_xbar_0
+INFO: [IP_Flow 19-6928] IPCACHE: copied cached file d:/ACA_Group9/hd-aca-25/work/work.cache/ip/2024.2/4/4/44cea0802e3cd205/design_1_axi_interconnect_0_imp_xbar_0.dcp to d:/ACA_Group9/hd-aca-25/bd/design_1/ip/design_1_axi_interconnect_0_imp_xbar_0/design_1_axi_interconnect_0_imp_xbar_0.dcp.
+INFO: [IP_Flow 19-6926] IPCACHE: added file to list for BOM: d:/ACA_Group9/hd-aca-25/bd/design_1/ip/design_1_axi_interconnect_0_imp_xbar_0/design_1_axi_interconnect_0_imp_xbar_0.dcp
+INFO: [IP_Flow 19-6928] IPCACHE: copied cached file d:/ACA_Group9/hd-aca-25/work/work.cache/ip/2024.2/4/4/44cea0802e3cd205/design_1_axi_interconnect_0_imp_xbar_0_sim_netlist.v to d:/ACA_Group9/hd-aca-25/bd/design_1/ip/design_1_axi_interconnect_0_imp_xbar_0/design_1_axi_interconnect_0_imp_xbar_0_sim_netlist.v.
+INFO: [IP_Flow 19-6926] IPCACHE: added file to list for BOM: d:/ACA_Group9/hd-aca-25/bd/design_1/ip/design_1_axi_interconnect_0_imp_xbar_0/design_1_axi_interconnect_0_imp_xbar_0_sim_netlist.v
+INFO: [IP_Flow 19-6928] IPCACHE: copied cached file d:/ACA_Group9/hd-aca-25/work/work.cache/ip/2024.2/4/4/44cea0802e3cd205/design_1_axi_interconnect_0_imp_xbar_0_sim_netlist.vhdl to d:/ACA_Group9/hd-aca-25/bd/design_1/ip/design_1_axi_interconnect_0_imp_xbar_0/design_1_axi_interconnect_0_imp_xbar_0_sim_netlist.vhdl.
+INFO: [IP_Flow 19-6926] IPCACHE: added file to list for BOM: d:/ACA_Group9/hd-aca-25/bd/design_1/ip/design_1_axi_interconnect_0_imp_xbar_0/design_1_axi_interconnect_0_imp_xbar_0_sim_netlist.vhdl
+INFO: [IP_Flow 19-6928] IPCACHE: copied cached file d:/ACA_Group9/hd-aca-25/work/work.cache/ip/2024.2/4/4/44cea0802e3cd205/design_1_axi_interconnect_0_imp_xbar_0_stub.v to d:/ACA_Group9/hd-aca-25/bd/design_1/ip/design_1_axi_interconnect_0_imp_xbar_0/design_1_axi_interconnect_0_imp_xbar_0_stub.v.
+INFO: [IP_Flow 19-6926] IPCACHE: added file to list for BOM: d:/ACA_Group9/hd-aca-25/bd/design_1/ip/design_1_axi_interconnect_0_imp_xbar_0/design_1_axi_interconnect_0_imp_xbar_0_stub.v
+INFO: [IP_Flow 19-6928] IPCACHE: copied cached file d:/ACA_Group9/hd-aca-25/work/work.cache/ip/2024.2/4/4/44cea0802e3cd205/design_1_axi_interconnect_0_imp_xbar_0_stub.vhdl to d:/ACA_Group9/hd-aca-25/bd/design_1/ip/design_1_axi_interconnect_0_imp_xbar_0/design_1_axi_interconnect_0_imp_xbar_0_stub.vhdl.
+INFO: [IP_Flow 19-6926] IPCACHE: added file to list for BOM: d:/ACA_Group9/hd-aca-25/bd/design_1/ip/design_1_axi_interconnect_0_imp_xbar_0/design_1_axi_interconnect_0_imp_xbar_0_stub.vhdl
+INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP design_1_axi_interconnect_0_imp_xbar_0, cache-ID = 44cea0802e3cd205; cache size = 12.911 MB.
+[Fri Jun 13 22:38:19 2025] Launched synth_1...
+Run output will be captured here: D:/ACA_Group9/hd-aca-25/synth_1/runme.log
+[Fri Jun 13 22:38:19 2025] Launched impl_1...
+Run output will be captured here: D:/ACA_Group9/hd-aca-25/impl_1/runme.log
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 6
+[Fri Jun 13 22:38:31 2025] Launched synth_1...
+Run output will be captured here: D:/ACA_Group9/hd-aca-25/synth_1/runme.log
+[Fri Jun 13 22:38:31 2025] Launched impl_1...
+Run output will be captured here: D:/ACA_Group9/hd-aca-25/impl_1/runme.log
+open_hw_manager
+connect_hw_server -allow_non_jtag
+INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
+INFO: [Labtools 27-2222] Launching hw_server...
+INFO: [Labtools 27-2221] Launch Output:
+
+****** Xilinx hw_server v2024.2
+  **** Build date : Oct 29 2024 at 10:25:41
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+
+
+INFO: [Labtools 27-3415] Connecting to cs_server url TCP:localhost:0
+INFO: [Labtools 27-3417] Launching cs_server...
+INFO: [Labtools 27-2221] Launch Output:
+
+
+******** Xilinx cs_server v2024.2.0
+  ****** Build date   : Oct 30 2024-19:19:07
+    **** Build number : 2024.2.1730312347
+      ** Copyright 2017-2022 Xilinx, Inc. All Rights Reserved.
+      ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+
+
+connect_hw_server: Time (s): cpu = 00:00:00 ; elapsed = 00:00:11 . Memory (MB): peak = 1885.891 ; gain = 7.602
+open_hw_target
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210351BA1C79A
+set_property PROGRAM.FILE {D:/ACA_Group9/hd-aca-25/impl_1/design_1_wrapper.bit} [get_hw_devices xc7z020_1]
+current_hw_device [get_hw_devices xc7z020_1]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7z020_1] 0]
+INFO: [Labtools 27-1435] Device xc7z020 (JTAG device index = 1) is not programmed (DONE status = 0).
+close_hw_manager
+write_hw_platform -fixed -include_bit -force -file D:/ACA_Group9/hd-aca-25/work/design_1_wrapper.xsa
+INFO: [Project 1-1918] Creating Hardware Platform: D:/ACA_Group9/hd-aca-25/work/design_1_wrapper.xsa ...
+INFO: [Project 1-1943] The Hardware Platform can be used for Hardware
+INFO: [Project 1-1941] Successfully created Hardware Platform: D:/ACA_Group9/hd-aca-25/work/design_1_wrapper.xsa
+INFO: [Hsi 55-2053] elapsed time for repository (F:/vivado/Vivado/2024.2/data/embeddedsw) loading 2 seconds
+file mkdir D:/ACA_Group9/hd-aca-25/work/work.srcs/constrs_1
+close [ open D:/ACA_Group9/hd-aca-25/xdc/project_1.xdc w ]
+import_files -fileset constrs_1 D:/ACA_Group9/hd-aca-25/xdc/project_1.xdc
+add_files -fileset constrs_1 -norecurse D:/ACA_Group9/hd-aca-25/xdc/project_1.xdc
+import_files -fileset constrs_1 {D:/ACA_Group9/hd-aca-25/xdc/Zybo-Z7-Master.xdc D:/ACA_Group9/hd-aca-25/xdc/project_1.xdc}
+WARNING: [filemgmt 20-354] The following file(s) were not imported. Local copy of file(s) already exists:
+D:/ACA_Group9/hd-aca-25/xdc/project_1.xdc
+Hint: use the '-force' option to overwrite the local copies.
+add_files -fileset constrs_1 -norecurse D:/ACA_Group9/hd-aca-25/xdc/Zybo-Z7-Master.xdc
+import_files -fileset constrs_1 -force D:/ACA_Group9/hd-aca-25/xdc/Zybo-Z7-Master.xdc
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file D:/ACA_Group9/hd-aca-25/work/work.srcs/utils_1/imports/synth_1/design_1_wrapper.dcp with file D:/ACA_Group9/hd-aca-25/synth_1/design_1_wrapper.dcp
+WARNING: [Vivado 12-1017] Problems encountered:
+1. Failed to delete one or more files in run directory D:/ACA_Group9/hd-aca-25/synth_1
+
+launch_runs impl_1 -to_step write_bitstream -jobs 6
+[Sat Jun 14 01:23:54 2025] Launched synth_1...
+Run output will be captured here: D:/ACA_Group9/hd-aca-25/synth_1/runme.log
+[Sat Jun 14 01:23:54 2025] Launched impl_1...
+Run output will be captured here: D:/ACA_Group9/hd-aca-25/impl_1/runme.log
+reset_run synth_1
+WARNING: [Vivado 12-1017] Problems encountered:
+1. Failed to delete one or more files in run directory D:/ACA_Group9/hd-aca-25/synth_1
+
+launch_runs synth_1 -jobs 6
+[Sat Jun 14 01:25:54 2025] Launched synth_1...
+Run output will be captured here: D:/ACA_Group9/hd-aca-25/synth_1/runme.log
+reset_run synth_1
+WARNING: [Vivado 12-1017] Problems encountered:
+1. Failed to delete one or more files in run directory D:/ACA_Group9/hd-aca-25/synth_1
+
+launch_runs synth_1 -jobs 6
+[Sat Jun 14 01:27:30 2025] Launched synth_1...
+Run output will be captured here: D:/ACA_Group9/hd-aca-25/synth_1/runme.log
+reset_run synth_1
+WARNING: [Vivado 12-1017] Problems encountered:
+1. Failed to delete one or more files in run directory D:/ACA_Group9/hd-aca-25/synth_1
+
+launch_runs synth_1 -jobs 6
+[Sat Jun 14 01:28:18 2025] Launched synth_1...
+Run output will be captured here: D:/ACA_Group9/hd-aca-25/synth_1/runme.log
+launch_runs impl_1 -jobs 6
+[Sat Jun 14 01:29:26 2025] Launched impl_1...
+Run output will be captured here: D:/ACA_Group9/hd-aca-25/impl_1/runme.log
+launch_runs impl_1 -to_step write_bitstream -jobs 6
+[Sat Jun 14 01:31:16 2025] Launched impl_1...
+Run output will be captured here: D:/ACA_Group9/hd-aca-25/impl_1/runme.log
+write_hw_platform -fixed -include_bit -force -file D:/ACA_Group9/hd-aca-25/work/design_1_wrapper.xsa
+INFO: [Project 1-1918] Creating Hardware Platform: D:/ACA_Group9/hd-aca-25/work/design_1_wrapper.xsa ...
+INFO: [Project 1-1943] The Hardware Platform can be used for Hardware
+INFO: [Project 1-1941] Successfully created Hardware Platform: D:/ACA_Group9/hd-aca-25/work/design_1_wrapper.xsa
+exit
+INFO: [Common 17-206] Exiting Vivado at Sat Jun 14 02:07:51 2025...

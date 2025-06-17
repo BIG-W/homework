@@ -1,0 +1,689 @@
+/dts-v1/;
+
+/ {
+        #address-cells = <0x1>;
+        #size-cells = <0x1>;
+        compatible = "xlnx,zynq-7000";
+        model = "Xilinx Zynq";
+        device_id = "7z020";
+        slrcount = <0x1>;
+        family = "Zynq";
+        pruned-sdt = <0x1>;
+
+        options {
+
+                u-boot {
+                        compatible = "u-boot,config";
+                        bootscr-address = <0x0 0x3000000>;
+                };
+        };
+
+        fpga_full: fpga-region {
+                compatible = "fpga-region";
+                #address-cells = <0x1>;
+                #size-cells = <0x1>;
+                ranges;
+                phandle = <0x30>;
+        };
+
+        pmu@f8891000 {
+                compatible = "arm,cortex-a9-pmu";
+                interrupts = <0x0 0x5 0x4 0x0 0x6 0x4>;
+                reg = <0xf8891000 0x1000 0xf8893000 0x1000>;
+        };
+
+        regulator_vccpint: fixedregulator {
+                compatible = "regulator-fixed";
+                regulator-name = "VCCPINT";
+                regulator-min-microvolt = <0xf4240>;
+                regulator-max-microvolt = <0xf4240>;
+                regulator-boot-on;
+                regulator-always-on;
+                phandle = <0x1b>;
+        };
+
+        replicator {
+                compatible = "arm,coresight-static-replicator";
+                clocks = <0x1a 0x1b 0x1a 0x2e 0x1a 0x2f>;
+                clock-names = "apb_pclk", "dbg_trc", "dbg_apb";
+
+                out-ports {
+                        #address-cells = <0x1>;
+                        #size-cells = <0x0>;
+
+                        port@0 {
+                                reg = <0x0>;
+
+                                replicator_out_port0: endpoint {
+                                        remote-endpoint = <0x1c>;
+                                        phandle = <0x20>;
+                                };
+                        };
+
+                        port@1 {
+                                reg = <0x1>;
+
+                                replicator_out_port1: endpoint {
+                                        remote-endpoint = <0x1d>;
+                                        phandle = <0x1f>;
+                                };
+                        };
+                };
+
+                in-ports {
+
+                        port {
+
+                                replicator_in_port0: endpoint {
+                                        remote-endpoint = <0x1e>;
+                                        phandle = <0x21>;
+                                };
+                        };
+                };
+        };
+
+        amba: axi {
+                bootph-all;
+                compatible = "simple-bus";
+                #address-cells = <0x1>;
+                #size-cells = <0x1>;
+                ranges;
+                phandle = <0x1>;
+
+                gpio0: gpio@e000a000 {
+                        compatible = "xlnx,zynq-gpio-1.0";
+                        #gpio-cells = <0x2>;
+                        clocks = <0x1a 0x2a>;
+                        gpio-controller;
+                        interrupt-controller;
+                        #interrupt-cells = <0x2>;
+                        interrupts = <0x0 0x14 0x4>;
+                        reg = <0xe000a000 0x1000>;
+                        phandle = <0x33>;
+                };
+
+                ocm: sram@fffc0000 {
+                        compatible = "mmio-sram";
+                        reg = <0xfffc0000 0x10000>;
+                        #address-cells = <0x1>;
+                        #size-cells = <0x1>;
+                        ranges = <0x0 0xfffc0000 0x10000>;
+                        phandle = <0x36>;
+
+                        ocm-sram@0 {
+                                reg = <0x0 0x10000>;
+                        };
+                };
+
+                efuse: efuse@f800d000 {
+                        compatible = "xlnx,zynq-efuse";
+                        reg = <0xf800d000 0x20>;
+                        phandle = <0x45>;
+                };
+
+                ttc0: timer@f8001000 {
+                        interrupts = <0x0 0xa 0x4 0x0 0xb 0x4 0x0 0xc 0x4>;
+                        compatible = "cdns,ttc";
+                        clocks = <0x1a 0x6>;
+                        reg = <0xf8001000 0x1000>;
+                        phandle = <0x46>;
+                };
+
+                ttc1: timer@f8002000 {
+                        interrupts = <0x0 0x25 0x4 0x0 0x26 0x4 0x0 0x27 0x4>;
+                        compatible = "cdns,ttc";
+                        clocks = <0x1a 0x6>;
+                        reg = <0xf8002000 0x1000>;
+                        phandle = <0x47>;
+                };
+
+                watchdog0: watchdog@f8005000 {
+                        clocks = <0x1a 0x2d>;
+                        compatible = "cdns,wdt-r1p2";
+                        interrupts = <0x0 0x9 0x1>;
+                        reg = <0xf8005000 0x1000>;
+                        timeout-sec = <0xa>;
+                        phandle = <0x4a>;
+                };
+
+                etb@f8801000 {
+                        compatible = "arm,coresight-etb10", "arm,primecell";
+                        reg = <0xf8801000 0x1000>;
+                        clocks = <0x1a 0x1b 0x1a 0x2e 0x1a 0x2f>;
+                        clock-names = "apb_pclk", "dbg_trc", "dbg_apb";
+
+                        in-ports {
+
+                                port {
+
+                                        etb_in_port: endpoint {
+                                                remote-endpoint = <0x1f>;
+                                                phandle = <0x1d>;
+                                        };
+                                };
+                        };
+                };
+
+                tpiu@f8803000 {
+                        compatible = "arm,coresight-tpiu", "arm,primecell";
+                        reg = <0xf8803000 0x1000>;
+                        clocks = <0x1a 0x1b 0x1a 0x2e 0x1a 0x2f>;
+                        clock-names = "apb_pclk", "dbg_trc", "dbg_apb";
+
+                        in-ports {
+
+                                port {
+
+                                        tpiu_in_port: endpoint {
+                                                remote-endpoint = <0x20>;
+                                                phandle = <0x1c>;
+                                        };
+                                };
+                        };
+                };
+
+                funnel@f8804000 {
+                        compatible = "arm,coresight-static-funnel", "arm,primecell";
+                        reg = <0xf8804000 0x1000>;
+                        clocks = <0x1a 0x1b 0x1a 0x2e 0x1a 0x2f>;
+                        clock-names = "apb_pclk", "dbg_trc", "dbg_apb";
+
+                        out-ports {
+
+                                port {
+
+                                        funnel_out_port: endpoint {
+                                                remote-endpoint = <0x21>;
+                                                phandle = <0x1e>;
+                                        };
+                                };
+                        };
+
+                        in-ports {
+                                #address-cells = <0x1>;
+                                #size-cells = <0x0>;
+
+                                port@0 {
+                                        reg = <0x0>;
+
+                                        funnel0_in_port0: endpoint {
+                                                remote-endpoint = <0x22>;
+                                                phandle = <0x25>;
+                                        };
+                                };
+
+                                port@1 {
+                                        reg = <0x1>;
+
+                                        funnel0_in_port1: endpoint {
+                                                remote-endpoint = <0x23>;
+                                                phandle = <0x27>;
+                                        };
+                                };
+
+                                port@2 {
+                                        reg = <0x2>;
+                                };
+                        };
+                };
+
+                ptm@f889c000 {
+                        compatible = "arm,coresight-etm3x", "arm,primecell";
+                        reg = <0xf889c000 0x1000>;
+                        clocks = <0x1a 0x1b 0x1a 0x2e 0x1a 0x2f>;
+                        clock-names = "apb_pclk", "dbg_trc", "dbg_apb";
+                        cpu = <0x24>;
+
+                        out-ports {
+
+                                port {
+
+                                        ptm0_out_port: endpoint {
+                                                remote-endpoint = <0x25>;
+                                                phandle = <0x22>;
+                                        };
+                                };
+                        };
+                };
+
+                ptm@f889d000 {
+                        compatible = "arm,coresight-etm3x", "arm,primecell";
+                        reg = <0xf889d000 0x1000>;
+                        clocks = <0x1a 0x1b 0x1a 0x2e 0x1a 0x2f>;
+                        clock-names = "apb_pclk", "dbg_trc", "dbg_apb";
+                        cpu = <0x26>;
+
+                        out-ports {
+
+                                port {
+
+                                        ptm1_out_port: endpoint {
+                                                remote-endpoint = <0x27>;
+                                                phandle = <0x23>;
+                                        };
+                                };
+                        };
+                };
+        };
+
+        cpus_microblaze_0: cpus_microblaze@0 {
+                #cpu-mask-cells = <0x1>;
+                compatible = "cpus,cluster";
+                #address-cells = <0x1>;
+                #size-cells = <0x0>;
+                address-map = <0x0 &microblaze_0_local_memory_dlmb_bram_if_cntlr_memory 0x0 0x4000>,
+                 <0x0 &microblaze_0_local_memory_dlmb_bram_if_cntlr 0x0 0x4000>,
+                 <0x20000000 &ps7_ddr_0_memory 0x20000000 0x20000000>,
+                 <0x40000000 &axi_gpio_0 0x40000000 0x10000>,
+                 <0x41400000 &mdm_0 0x41400000 0x1000>,
+                 <0x41c00000 &axi_timer_0 0x41c00000 0x10000>;
+                #ranges-address-cells = <0x1>;
+                #ranges-size-cells = <0x1>;
+                phandle = <0x4f>;
+
+                microblaze_0: cpu@0 {
+                        xlnx,reset-msr-dce = <0x0>;
+                        model = "microblaze,11.0";
+                        xlnx,addr-tag-bits = <0x0>;
+                        xlnx,d-axi = <0x1>;
+                        xlnx,interrupt-mon = <0x0>;
+                        xlnx,iaddr-size = <0x20>;
+                        xlnx,number-of-wr-addr-brk = <0x0>;
+                        xlnx,dynamic-bus-sizing = <0x0>;
+                        xlnx,rable = <0x0>;
+                        xlnx,temporal-depth = <0x0>;
+                        xlnx,use-interrupt = <0x0>;
+                        xlnx,optimization = <0x0>;
+                        xlnx,ip-axi-mon = <0x0>;
+                        xlnx,ip-name = "microblaze";
+                        d-cache-highaddr = <0x3fffffff>;
+                        xlnx,dcache-force-tag-lutram = <0x0>;
+                        xlnx,pc-width = <0x20>;
+                        xlnx,interrupt-is-edge = <0x0>;
+                        reg = <0x0>;
+                        xlnx,async-interrupt = <0x1>;
+                        xlnx,use-mmu = <0x0>;
+                        xlnx,reset-msr-ee = <0x0>;
+                        xlnx,icache-victims = <0x0>;
+                        xlnx,use-reorder-instr = <0x1>;
+                        xlnx,d-lmb-mon = <0x0>;
+                        xlnx,d-lmb-protocol = <0x0>;
+                        xlnx,ill-opcode-exception = <0x0>;
+                        xlnx,dcache-always-used = <0x1>;
+                        xlnx,use-div = <0x0>;
+                        xlnx,dc-axi-mon = <0x0>;
+                        xlnx,debug-trace-async-reset = <0x0>;
+                        xlnx,trace = <0x0>;
+                        xlnx,part = "xc7z020clg400-1";
+                        i-cache-baseaddr = <0x0>;
+                        xlnx,use-config-reset = <0x0>;
+                        xlnx,pvr = <0x0>;
+                        xlnx,i-lmb-mon = <0x0>;
+                        xlnx,dcache-byte-size = <0x2000>;
+                        xlnx,fault-tolerant = <0x0>;
+                        xlnx,family = "zynq";
+                        compatible = "xlnx,microblaze-11.0", "xlnx,microblaze";
+                        xlnx,data-size = <0x20>;
+                        xlnx,mmu-zones = <0x10>;
+                        xlnx,debug-trace-size = <0x2000>;
+                        xlnx,mmu-privileged-instr = <0x0>;
+                        xlnx,enable-discrete-ports = <0x0>;
+                        d-cache-line-size = <0x20>;
+                        xlnx,d-lmb = <0x1>;
+                        xlnx,sco = <0x0>;
+                        xlnx,reset-msr-eip = <0x0>;
+                        xlnx,debug-interface = <0x0>;
+                        clock-frequency = <0x5f5e100>;
+                        xlnx,use-ext-brk = <0x0>;
+                        xlnx,daddr-size = <0x20>;
+                        xlnx,debug-enabled = <0x1>;
+                        xlnx,reset-msr-ice = <0x0>;
+                        xlnx,num-sync-ff-dbg-trace-clk = <0x2>;
+                        xlnx,i-lmb-protocol = <0x0>;
+                        xlnx,endianness = <0x1>;
+                        xlnx,fsl-exception = <0x0>;
+                        i-cache-line-size = <0x10>;
+                        xlnx,use-extended-fsl-instr = <0x0>;
+                        xlnx,reset-msr = <0x0>;
+                        xlnx,dp-axi-mon = <0x0>;
+                        device_type = "cpu";
+                        xlnx,branch-target-cache-size = <0x0>;
+                        xlnx,dcache-use-writeback = <0x0>;
+                        xlnx,div-zero-exception = <0x0>;
+                        xlnx,mmu-tlb-access = <0x3>;
+                        bus-handle = <0x2d>;
+                        xlnx,cache-byte-size = <0x2000>;
+                        xlnx,pvr-user2 = <0x0>;
+                        xlnx,opcode-0x0-illegal = <0x0>;
+                        xlnx,icache-line-len = <0x4>;
+                        xlnx,ecc-use-ce-exception = <0x0>;
+                        xlnx,base-vectors = <0x0>;
+                        xlnx,edk-special = "microblaze";
+                        xlnx,use-dcache = <0x1>;
+                        xlnx,use-barrel = <0x0>;
+                        xlnx,reset-msr-bip = <0x0>;
+                        xlnx,allow-dcache-wr = <0x1>;
+                        xlnx,addr-size = <0x20>;
+                        xlnx,debug-external-trace = <0x0>;
+                        xlnx,piaddr-size = <0x20>;
+                        i-cache-highaddr = <0x3fffffff>;
+                        xlnx,num-sync-ff-clk-debug = <0x2>;
+                        xlnx,debug-event-counters = <0x5>;
+                        xlnx,fpu-exception = <0x0>;
+                        xlnx,allow-icache-wr = <0x1>;
+                        xlnx,g-use-exceptions = <0x0>;
+                        xlnx,i-axi = <0x0>;
+                        xlnx,g-template-list = <0x0>;
+                        xlnx,icache-streams = <0x0>;
+                        xlnx,dcache-line-len = <0x8>;
+                        xlnx,num-sync-ff-clk = <0x2>;
+                        xlnx,edk-iptype = "PROCESSOR";
+                        xlnx,use-stack-protection = <0x0>;
+                        xlnx,use-hw-mul = <0x0>;
+                        xlnx,num-sync-ff-dbg-clk = <0x1>;
+                        xlnx,interconnect = <0x2>;
+                        xlnx,debug-latency-counters = <0x1>;
+                        i-cache-size = <0x2000>;
+                        xlnx,exceptions-in-delay-slots = <0x1>;
+                        xlnx,use-fpu = <0x0>;
+                        xlnx,reset-msr-ie = <0x0>;
+                        xlnx,edge-is-positive = <0x1>;
+                        xlnx,use-pcmp-instr = <0x0>;
+                        xlnx,use-icache = <0x0>;
+                        d-cache-size = <0x2000>;
+                        xlnx,memory-ip-list = "microblaze_0_local_memory_ilmb_bram_if_cntlr_memory", "microblaze_0_local_memory_dlmb_bram_if_cntlr_memory";
+                        xlnx,async-wakeup = <0x3>;
+                        xlnx,use-non-secure = <0x0>;
+                        xlnx,dcache-addr-tag = <0x10>;
+                        xlnx,number-of-rd-addr-brk = <0x0>;
+                        d-cache-baseaddr = <0x20000000>;
+                        xlnx,area-optimized = <0x0>;
+                        xlnx,avoid-primitives = <0x0>;
+                        xlnx,lockstep-slave = <0x0>;
+                        xlnx,use-ext-nm-brk = <0x0>;
+                        xlnx,instr-size = <0x20>;
+                        xlnx,icache-always-used = <0x1>;
+                        xlnx,i-lmb = <0x1>;
+                        xlnx,mmu-dtlb-size = <0x4>;
+                        xlnx,lockstep-select = <0x0>;
+                        xlnx,lmb-data-size = <0x20>;
+                        xlnx,ic-axi-mon = <0x0>;
+                        xlnx,enable-conversion = <0x0>;
+                        xlnx,num-sync-ff-clk-irq = <0x1>;
+                        xlnx,fsl-links = <0x0>;
+                        timebase-frequency = <0x5f5e100>;
+                        xlnx,icache-force-tag-lutram = <0x0>;
+                        xlnx,dcache-data-width = <0x0>;
+                        xlnx,dcache-victims = <0x0>;
+                        xlnx,use-branch-target-cache = <0x0>;
+                        xlnx,debug-profile-size = <0x0>;
+                        xlnx,unaligned-exceptions = <0x0>;
+                        xlnx,lockstep-master = <0x0>;
+                        xlnx,freq = <0x5f5e100>;
+                        xlnx,number-of-pc-brk = <0x1>;
+                        xlnx,mmu-itlb-size = <0x2>;
+                        xlnx,imprecise-exceptions = <0x0>;
+                        xlnx,use-msr-instr = <0x0>;
+                        xlnx,icache-data-width = <0x0>;
+                        xlnx,debug-counter-width = <0x20>;
+                        phandle = <0x50>;
+                };
+        };
+
+        clock: clocks {
+                #address-cells = <0x1>;
+                #size-cells = <0x0>;
+                phandle = <0x51>;
+
+                clk_cpu_0: clk_cpu@0 {
+                        compatible = "fixed-clock";
+                        reg = <0x0>;
+                        clock-frequency = <0x5f5e100>;
+                        clock-output-names = "clk_cpu";
+                        #clock-cells = <0x0>;
+                        phandle = <0x52>;
+                };
+        };
+
+        amba_pl: amba_pl {
+                ranges;
+                compatible = "simple-bus";
+                #address-cells = <0x1>;
+                #size-cells = <0x1>;
+                firmware-name = "design_1_wrapper.bit.bin";
+                phandle = <0x2d>;
+
+                misc_clk_0: misc_clk_0 {
+                        compatible = "fixed-clock";
+                        clock-frequency = <0x5f5e100>;
+                        #clock-cells = <0x0>;
+                        phandle = <0x2e>;
+                };
+
+                axi_gpio_0: gpio@40000000 {
+                        xlnx,gpio-board-interface = "Custom";
+                        compatible = "xlnx,axi-gpio-2.0", "xlnx,xps-gpio-1.00.a";
+                        xlnx,all-outputs = <0x0>;
+                        #gpio-cells = <0x2>;
+                        xlnx,gpio-width = <0x20>;
+                        xlnx,rable = <0x0>;
+                        xlnx,dout-default = <0x0>;
+                        xlnx,is-dual = <0x0>;
+                        xlnx,ip-name = "axi_gpio";
+                        xlnx,tri-default-2 = <0xffffffff>;
+                        reg = <0x40000000 0x10000>;
+                        xlnx,all-inputs-2 = <0x0>;
+                        clocks = <&misc_clk_0>;
+                        xlnx,all-outputs-2 = <0x0>;
+                        gpio-controller;
+                        xlnx,interrupt-present = <0x0>;
+                        xlnx,gpio2-board-interface = "Custom";
+                        xlnx,edk-iptype = "PERIPHERAL";
+                        xlnx,dout-default-2 = <0x0>;
+                        status = "okay";
+                        xlnx,gpio2-width = <0x20>;
+                        clock-names = "s_axi_aclk";
+                        xlnx,tri-default = <0xffffffff>;
+                        xlnx,name = "axi_gpio_0";
+                        xlnx,all-inputs = <0x0>;
+                        phandle = <0x2a>;
+                };
+
+                axi_timer_0: timer@41c00000 {
+                        compatible = "xlnx,axi-timer-2.0", "xlnx,xps-timer-1.00.a";
+                        xlnx,gen1-assert = <0x1>;
+                        clock-frequency = <0x5f5e100>;
+                        xlnx,trig0-assert = <0x1>;
+                        xlnx,rable = <0x0>;
+                        xlnx,count-width = <0x20>;
+                        xlnx,ip-name = "axi_timer";
+                        xlnx,one-timer-only = <0x0>;
+                        reg = <0x41c00000 0x10000>;
+                        clocks = <&misc_clk_0>;
+                        xlnx,gen0-assert = <0x1>;
+                        xlnx,mode-64bit = <0x0>;
+                        xlnx,edk-iptype = "PERIPHERAL";
+                        status = "okay";
+                        xlnx,trig1-assert = <0x1>;
+                        clock-names = "s_axi_aclk";
+                        xlnx,enable-timer2 = <0x1>;
+                        xlnx,name = "axi_timer_0";
+                        phandle = <0x2c>;
+                };
+
+                mdm_0: serial@41400000 {
+                        xlnx,trace-async-reset = <0x0>;
+                        compatible = "xlnx,mdm-3.2", "xlnx,xps-uartlite-1.00.a";
+                        xlnx,data-size = <0x20>;
+                        xlnx,addr-size = <0x20>;
+                        xlnx,xmtc = <0x0>;
+                        xlnx,avoid-primitives = <0x0>;
+                        xlnx,bscanid = <0x4900500>;
+                        xlnx,trace-output = <0x0>;
+                        xlnx,debug-interface = <0x0>;
+                        xlnx,rable = <0x0>;
+                        xlnx,use-uart = <0x1>;
+                        xlnx,mb-dbg-ports = <0x1>;
+                        xlnx,jtag-chain = <0x2>;
+                        xlnx,ext-trig-reset-value = <0xf1234>;
+                        xlnx,trig-in-ports = <0x1>;
+                        xlnx,ip-name = "mdm";
+                        xlnx,brk = <0x0>;
+                        xlnx,dbg-reg-access = <0x1>;
+                        reg = <0x41400000 0x1000>;
+                        clocks = <&misc_clk_0>;
+                        xlnx,use-bscan = <0x0>;
+                        xlnx,trace-id = <0x6e>;
+                        xlnx,lmb-protocol = <0x0>;
+                        xlnx,trace-data-width = <0x20>;
+                        xlnx,edk-iptype = "PERIPHERAL";
+                        xlnx,interconnect = <0x2>;
+                        xlnx,use-cross-trigger = <0x0>;
+                        xlnx,trace-protocol = <0x1>;
+                        status = "okay";
+                        clock-names = "S_AXI_ACLK";
+                        xlnx,use-config-reset = <0x0>;
+                        xlnx,trig-out-ports = <0x1>;
+                        xlnx,device = "xc7z020";
+                        xlnx,dbg-mem-access = <0x0>;
+                        xlnx,trace-clk-out-phase = <0x5a>;
+                        xlnx,name = "mdm_0";
+                        phandle = <0x2b>;
+                };
+
+                microblaze_0_local_memory_dlmb_bram_if_cntlr: lmb_bram_if_cntlr@0 {
+                        xlnx,edk-special = "BRAM_CTRL";
+                        xlnx,write-access = <0x2>;
+                        compatible = "xlnx,lmb-bram-if-cntlr-4.0";
+                        xlnx,ecc-onoff-register = <0x0>;
+                        xlnx,ecc-onoff-reset-value = <0x1>;
+                        xlnx,s-axi-ctrl-protocol = "AXI4LITE";
+                        xlnx,mask = <0x60000000>;
+                        xlnx,mask1 = <0x800000>;
+                        xlnx,rable = <0x0>;
+                        xlnx,mask2 = <0x800000>;
+                        xlnx,fault-inject = <0x0>;
+                        xlnx,mask3 = <0x800000>;
+                        xlnx,arbitration = <0x0>;
+                        xlnx,num-lmb = <0x1>;
+                        xlnx,mask4 = <0x800000>;
+                        reg = <0x0 0x4000>;
+                        xlnx,s-axi-ctrl-addr-width = <0x20>;
+                        xlnx,mask5 = <0x800000>;
+                        xlnx,ecc-status-registers = <0x0>;
+                        xlnx,mask6 = <0x800000>;
+                        xlnx,lmb-protocol = <0x0>;
+                        xlnx,ce-counter-width = <0x0>;
+                        xlnx,mask7 = <0x800000>;
+                        xlnx,ecc = <0x0>;
+                        xlnx,edk-iptype = "PERIPHERAL";
+                        xlnx,lmb-dwidth = <0x20>;
+                        xlnx,ce-failing-registers = <0x0>;
+                        xlnx,interconnect = <0x0>;
+                        xlnx,ue-failing-registers = <0x0>;
+                        xlnx,data-width = <0x20>;
+                        xlnx,s-axi-ctrl-data-width = <0x20>;
+                        xlnx,bram-awidth = <0x20>;
+                        xlnx,lmb-awidth = <0x20>;
+                        phandle = <0x29>;
+                };
+
+                microblaze_0_local_memory_ilmb_bram_if_cntlr: lmb_bram_if_cntlr@1 {
+                        xlnx,edk-special = "BRAM_CTRL";
+                        xlnx,write-access = <0x2>;
+                        compatible = "xlnx,lmb-bram-if-cntlr-4.0";
+                        xlnx,ecc-onoff-register = <0x0>;
+                        xlnx,ecc-onoff-reset-value = <0x1>;
+                        xlnx,s-axi-ctrl-protocol = "AXI4LITE";
+                        xlnx,mask = <0x0>;
+                        xlnx,mask1 = <0x800000>;
+                        xlnx,rable = <0x0>;
+                        xlnx,mask2 = <0x800000>;
+                        xlnx,fault-inject = <0x0>;
+                        xlnx,mask3 = <0x800000>;
+                        xlnx,arbitration = <0x0>;
+                        xlnx,num-lmb = <0x1>;
+                        xlnx,mask4 = <0x800000>;
+                        reg = <0x0 0x4000>;
+                        xlnx,s-axi-ctrl-addr-width = <0x20>;
+                        xlnx,mask5 = <0x800000>;
+                        xlnx,ecc-status-registers = <0x0>;
+                        xlnx,mask6 = <0x800000>;
+                        xlnx,lmb-protocol = <0x0>;
+                        xlnx,ce-counter-width = <0x0>;
+                        xlnx,mask7 = <0x800000>;
+                        xlnx,ecc = <0x0>;
+                        xlnx,edk-iptype = "PERIPHERAL";
+                        xlnx,lmb-dwidth = <0x20>;
+                        xlnx,ce-failing-registers = <0x0>;
+                        xlnx,interconnect = <0x0>;
+                        xlnx,ue-failing-registers = <0x0>;
+                        xlnx,s-axi-ctrl-data-width = <0x20>;
+                        xlnx,bram-awidth = <0x20>;
+                        xlnx,lmb-awidth = <0x20>;
+                        phandle = <0x54>;
+                };
+        };
+
+        microblaze_0_local_memory_dlmb_bram_if_cntlr_memory: memory@0 {
+                compatible = "xlnx,lmb-bram-if-cntlr-4.0";
+                xlnx,ip-name = "lmb_bram_if_cntlr";
+                device_type = "memory";
+                memory_type = "memory";
+                reg = <0x0 0x4000>;
+                phandle = <0x28>;
+        };
+
+        ps7_ddr_0_memory: memory@00100000 {
+                compatible = "xlnx,ps7-ddr-1.00.a";
+                xlnx,ip-name = "ps7_ddr";
+                device_type = "memory";
+                memory_type = "memory";
+                reg = <0x20000000 0x20000000>;
+                phandle = <0x2>;
+        };
+
+        chosen {
+                stdout-path = "serial0:115200n8";
+        };
+
+        aliases {
+                serial0 = "/amba_pl/serial@41400000";
+                serial1 = "/axi/coresight@f8800000";
+        };
+
+        __symbols__ {
+                fpga_full = "/fpga-region";
+                regulator_vccpint = "/fixedregulator";
+                replicator_out_port0 = "/replicator/out-ports/port@0/endpoint";
+                replicator_out_port1 = "/replicator/out-ports/port@1/endpoint";
+                replicator_in_port0 = "/replicator/in-ports/port/endpoint";
+                amba = "/axi";
+                gpio0 = "/axi/gpio@e000a000";
+                ocm = "/axi/sram@fffc0000";
+                efuse = "/axi/efuse@f800d000";
+                ttc0 = "/axi/timer@f8001000";
+                ttc1 = "/axi/timer@f8002000";
+                watchdog0 = "/axi/watchdog@f8005000";
+                etb_in_port = "/axi/etb@f8801000/in-ports/port/endpoint";
+                tpiu_in_port = "/axi/tpiu@f8803000/in-ports/port/endpoint";
+                funnel_out_port = "/axi/funnel@f8804000/out-ports/port/endpoint";
+                funnel0_in_port0 = "/axi/funnel@f8804000/in-ports/port@0/endpoint";
+                funnel0_in_port1 = "/axi/funnel@f8804000/in-ports/port@1/endpoint";
+                ptm0_out_port = "/axi/ptm@f889c000/out-ports/port/endpoint";
+                ptm1_out_port = "/axi/ptm@f889d000/out-ports/port/endpoint";
+                cpus_microblaze_0 = "/cpus_microblaze@0";
+                microblaze_0 = "/cpus_microblaze@0/cpu@0";
+                clock = "/clocks";
+                clk_cpu_0 = "/clocks/clk_cpu@0";
+                amba_pl = "/amba_pl";
+                misc_clk_0 = "/amba_pl/misc_clk_0";
+                axi_gpio_0 = "/amba_pl/gpio@40000000";
+                axi_timer_0 = "/amba_pl/timer@41c00000";
+                mdm_0 = "/amba_pl/serial@41400000";
+                microblaze_0_local_memory_dlmb_bram_if_cntlr = "/amba_pl/lmb_bram_if_cntlr@0";
+                microblaze_0_local_memory_ilmb_bram_if_cntlr = "/amba_pl/lmb_bram_if_cntlr@1";
+                microblaze_0_local_memory_dlmb_bram_if_cntlr_memory = "/memory@0";
+                ps7_ddr_0_memory = "/memory@00100000";
+        };
+};

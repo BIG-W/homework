@@ -1,0 +1,4 @@
+domain_path: D:\ACA_Group9\hd-aca-25-3\vitis_code\platform\zynq_fsbl\zynq_fsbl_bsp
+app_src_dir: F:\vivado\Vitis\2024.2\data\embeddedsw\lib\sw_apps\zynq_fsbl
+template: zynq_fsbl
+lang: c

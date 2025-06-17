@@ -1,0 +1,6 @@
+create libxil.a
+addlib D:/ACA_Group9/hd-aca-25-3/vitis_code/platform/microblaze_0/standalone_microblaze_0/bsp/libsrc/build_configs/gen_bsp/libsrc/uartlite/src/libuartlite.a
+addlib D:/ACA_Group9/hd-aca-25-3/vitis_code/platform/microblaze_0/standalone_microblaze_0/bsp/libsrc/build_configs/gen_bsp/libsrc/tmrctr/src/libtmrctr.a
+addlib D:/ACA_Group9/hd-aca-25-3/vitis_code/platform/microblaze_0/standalone_microblaze_0/bsp/libsrc/build_configs/gen_bsp/libsrc/gpio/src/libgpio.a
+save
+end

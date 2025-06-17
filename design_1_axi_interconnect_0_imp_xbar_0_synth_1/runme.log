@@ -1,0 +1,25 @@
+
+*** Running vivado
+    with args -log design_1_axi_interconnect_0_imp_xbar_0.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source design_1_axi_interconnect_0_imp_xbar_0.tcl
+
+
+
+****** Vivado v2024.2 (64-bit)
+  **** SW Build 5239630 on Fri Nov 08 22:35:27 MST 2024
+  **** IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
+  **** SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
+  **** Start of session at: Fri Jun 13 22:38:08 2025
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source design_1_axi_interconnect_0_imp_xbar_0.tcl -notrace
+create_project: Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 620.461 ; gain = 192.430
+INFO: [IP_Flow 19-6924] IPCACHE: Running cache check for IP inst: design_1_axi_interconnect_0_imp_xbar_0
+INFO: [IP_Flow 19-6922] IPCACHE: Exporting cached entry 44cea0802e3cd205 to dir: D:/ACA_Group9/hd-aca-25/design_1_axi_interconnect_0_imp_xbar_0_synth_1
+INFO: [IP_Flow 19-6928] IPCACHE: copied cached file d:/ACA_Group9/hd-aca-25/work/work.cache/ip/2024.2/4/4/44cea0802e3cd205/design_1_axi_interconnect_0_imp_xbar_0.dcp to D:/ACA_Group9/hd-aca-25/design_1_axi_interconnect_0_imp_xbar_0_synth_1/design_1_axi_interconnect_0_imp_xbar_0.dcp.
+INFO: [IP_Flow 19-6928] IPCACHE: copied cached file d:/ACA_Group9/hd-aca-25/work/work.cache/ip/2024.2/4/4/44cea0802e3cd205/design_1_axi_interconnect_0_imp_xbar_0_sim_netlist.v to D:/ACA_Group9/hd-aca-25/design_1_axi_interconnect_0_imp_xbar_0_synth_1/design_1_axi_interconnect_0_imp_xbar_0_sim_netlist.v.
+INFO: [IP_Flow 19-6928] IPCACHE: copied cached file d:/ACA_Group9/hd-aca-25/work/work.cache/ip/2024.2/4/4/44cea0802e3cd205/design_1_axi_interconnect_0_imp_xbar_0_sim_netlist.vhdl to D:/ACA_Group9/hd-aca-25/design_1_axi_interconnect_0_imp_xbar_0_synth_1/design_1_axi_interconnect_0_imp_xbar_0_sim_netlist.vhdl.
+INFO: [IP_Flow 19-6928] IPCACHE: copied cached file d:/ACA_Group9/hd-aca-25/work/work.cache/ip/2024.2/4/4/44cea0802e3cd205/design_1_axi_interconnect_0_imp_xbar_0_stub.v to D:/ACA_Group9/hd-aca-25/design_1_axi_interconnect_0_imp_xbar_0_synth_1/design_1_axi_interconnect_0_imp_xbar_0_stub.v.
+INFO: [IP_Flow 19-6928] IPCACHE: copied cached file d:/ACA_Group9/hd-aca-25/work/work.cache/ip/2024.2/4/4/44cea0802e3cd205/design_1_axi_interconnect_0_imp_xbar_0_stub.vhdl to D:/ACA_Group9/hd-aca-25/design_1_axi_interconnect_0_imp_xbar_0_synth_1/design_1_axi_interconnect_0_imp_xbar_0_stub.vhdl.
+INFO: [IP_Flow 19-4838] Using cached IP synthesis design for IP design_1_axi_interconnect_0_imp_xbar_0, cache-ID = 44cea0802e3cd205.
+INFO: [Common 17-206] Exiting Vivado at Fri Jun 13 22:38:18 2025...

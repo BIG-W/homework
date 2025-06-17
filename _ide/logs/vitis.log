@@ -1,0 +1,112 @@
+11:47:57 INFO  : updated workspace path: D:\ACA_Group9\hd-aca-25
+11:47:57 INFO  : created .gitignore file for the project D:\ACA_Group9\hd-aca-25
+11:47:57 INFO  : cmd.exe, /C, F:\vivado\Vitis\2024.2\tps\win64\lopper-1.1.0\env\Scripts\activate.bat && python F:\vivado\Vitis\2024.2\data\embeddedsw\scripts\pyesw\\repo.py -st   F:\vivado\Vitis\2024.2\data\embeddedsw && F:\vivado\Vitis\2024.2\tps\win64\lopper-1.1.0\env\Scripts\deactivate.bat
+11:47:59 INFO  : Successfully created repository data at D:\ACA_Group9\hd-aca-25/_ide\.wsdata
+11:47:59 INFO  : cmd.exe, /C, F:\vivado\Vitis\2024.2\tps\win64\lopper-1.1.0\env\Scripts\activate.bat && python F:\vivado\Vitis\2024.2\data\embeddedsw\scripts\pyesw\\get_template_data.py -d C:\Users\ZhuanZ\AppData\Local\Temp\rigel_lopper_ZhuanZ£®Œﬁ√‹¬Î£©16966501765304468105 -r D:\ACA_Group9\hd-aca-25\_ide\.wsdata\.repo.yaml && F:\vivado\Vitis\2024.2\tps\win64\lopper-1.1.0\env\Scripts\deactivate.bat
+11:48:00 INFO  : Embedded Template List generated successfully
+11:48:45 INFO  : connection terminated
+11:48:45 INFO  : connection terminated
+11:48:45 INFO  : scheduling shutdown timer for 2 seconds ...
+11:48:47 INFO  : Terminating Vitis C++ Server
+11:48:47 INFO  : Vitis C++ Server terminated
+22:33:15 INFO  : updated workspace path: D:\ACA_Group9\hd-aca-25
+22:33:17 INFO  : Successfully created repository data at C:\Users\ZhuanZ\AppData\Local\Temp\rigel_lopper_ZhuanZ£®Œﬁ√‹¬Î£©15002627123508550836
+22:33:17 INFO  : cmd.exe, /C, F:\vivado\Vitis\2024.2\tps\win64\lopper-1.1.0\env\Scripts\activate.bat && python F:\vivado\Vitis\2024.2\data\embeddedsw\scripts\pyesw\\get_template_data.py -d C:\Users\ZhuanZ\AppData\Local\Temp\rigel_lopper_ZhuanZ£®Œﬁ√‹¬Î£©440937617713031773 -r C:\Users\ZhuanZ\AppData\Local\Temp\rigel_lopper_ZhuanZ£®Œﬁ√‹¬Î£©15002627123508550836\.repo.yaml && F:\vivado\Vitis\2024.2\tps\win64\lopper-1.1.0\env\Scripts\deactivate.bat
+22:33:17 INFO  : Embedded Template List generated successfully
+22:33:17 INFO  : cmd.exe, /C, F:\vivado\Vitis\2024.2\tps\win64\lopper-1.1.0\env\Scripts\activate.bat && python F:\vivado\Vitis\2024.2\data\embeddedsw\scripts\pyesw\\get_template_data.py -d C:\Users\ZhuanZ\AppData\Local\Temp\rigel_lopper_ZhuanZ£®Œﬁ√‹¬Î£©17090389534952062000 -r D:\ACA_Group9\hd-aca-25\_ide\.wsdata\.repo.yaml && F:\vivado\Vitis\2024.2\tps\win64\lopper-1.1.0\env\Scripts\deactivate.bat
+22:33:18 INFO  : Embedded Template List generated successfully
+22:33:26 INFO  : Found no platform with name 'pwd_code' in install repositories
+22:33:26 INFO  : Found no platform with name 'pwd_code' in install repositories
+22:35:04 INFO  : XSDB server has started successfully from frontend.
+22:35:04 INFO  : It has taken  3secs.
+22:35:05 INFO  : Connection to XSDB Server established.
+22:35:05 INFO  : It has taken  1secs.
+22:35:05 INFO  : Done
+22:35:36 INFO  : Found no platform with name 'pwd_code' in install repositories
+22:35:37 INFO  : Found no platform with name 'pwd_code' in install repositories
+22:38:35 INFO  : Found no platform with name 'design_1_wrapper' in install repositories
+22:38:35 INFO  : HW XSA update started
+22:38:35 INFO  : Using sdt generation script from F:\vivado\Vitis\2024.2\vitis-server\scripts\platformutil.tcl
+22:38:35 INFO  : cmd.exe, /C, F:\vivado\Vitis\2024.2\tps\win64\lopper-1.1.0\env\Scripts\activate.bat && xsct.bat F:\vivado\Vitis\2024.2\vitis-server\scripts\platformutil.tcl D:\ACA_Group9\hd-aca-25\work\design_1_wrapper.xsa D:\ACA_Group9\hd-aca-25\visit_code\pwd_code\hw\sdt && F:\vivado\Vitis\2024.2\tps\win64\lopper-1.1.0\env\Scripts\deactivate.bat
+22:38:41 INFO  : SDT generated successfully
+22:38:41 INFO  : Generating BSP for the domain D:\ACA_Group9\hd-aca-25\visit_code\pwd_code\zynq_fsbl\zynq_fsbl_bsp
+22:38:41 INFO  : lopper command to reconfigure BSP :python F:\vivado\Vitis\2024.2\data\embeddedsw/scripts/pyesw//reconfig_bsp.py -d D:\ACA_Group9\hd-aca-25\visit_code\pwd_code\zynq_fsbl\zynq_fsbl_bsp
+22:38:41 INFO  : cmd.exe, /C, F:\vivado\Vitis\2024.2\tps\win64\lopper-1.1.0\env\Scripts\activate.bat && python F:\vivado\Vitis\2024.2\data\embeddedsw\scripts\pyesw\\reconfig_bsp.py -d D:\ACA_Group9\hd-aca-25\visit_code\pwd_code\zynq_fsbl\zynq_fsbl_bsp && F:\vivado\Vitis\2024.2\tps\win64\lopper-1.1.0\env\Scripts\deactivate.bat
+22:38:42 INFO  : Domain reconfigured successfully
+22:38:42 INFO  : lopper command to regenerate BSP :python F:\vivado\Vitis\2024.2\data\embeddedsw/scripts/pyesw//regen_bsp.py -s D:\ACA_Group9\hd-aca-25\visit_code\pwd_code\hw\sdt\system-top.dts -d D:\ACA_Group9\hd-aca-25\visit_code\pwd_code\zynq_fsbl\zynq_fsbl_bsp -r D:\ACA_Group9\hd-aca-25\_ide\.wsdata\.repo.yaml
+22:38:42 INFO  : cmd.exe, /C, F:\vivado\Vitis\2024.2\tps\win64\lopper-1.1.0\env\Scripts\activate.bat && python F:\vivado\Vitis\2024.2\data\embeddedsw\scripts\pyesw\\regen_bsp.py -s D:\ACA_Group9\hd-aca-25\visit_code\pwd_code\hw\sdt\system-top.dts -d D:\ACA_Group9\hd-aca-25\visit_code\pwd_code\zynq_fsbl\zynq_fsbl_bsp -r D:\ACA_Group9\hd-aca-25\_ide\.wsdata\.repo.yaml && F:\vivado\Vitis\2024.2\tps\win64\lopper-1.1.0\env\Scripts\deactivate.bat
+22:39:02 INFO  : -- Configuring done
+22:39:02 INFO  : -- Generating done
+22:39:02 INFO  : CMake Warning:
+22:39:02 INFO  :   Manually-specified variables were not used by the project:
+22:39:02 INFO  : 
+22:39:02 INFO  :     CMAKE_TOOLCHAIN_FILE
+22:39:02 INFO  : 
+22:39:02 INFO  : 
+22:39:02 INFO  : -- Build files have been written to: D:/ACA_Group9/hd-aca-25/visit_code/pwd_code/zynq_fsbl/zynq_fsbl_bsp/libsrc/build_configs/gen_bsp
+22:39:02 INFO  : Successfully created Domain at D:\ACA_Group9\hd-aca-25\visit_code\pwd_code\zynq_fsbl\zynq_fsbl_bsp
+22:39:02 INFO  : BSP regenerated successfully
+22:39:02 INFO  : Generating BSP for the domain D:\ACA_Group9\hd-aca-25\visit_code\pwd_code\ps7_cortexa9_0\standalone_ps7_cortexa9_0\bsp
+22:39:02 INFO  : lopper command to reconfigure BSP :python F:\vivado\Vitis\2024.2\data\embeddedsw/scripts/pyesw//reconfig_bsp.py -d D:\ACA_Group9\hd-aca-25\visit_code\pwd_code\ps7_cortexa9_0\standalone_ps7_cortexa9_0\bsp
+22:39:02 INFO  : cmd.exe, /C, F:\vivado\Vitis\2024.2\tps\win64\lopper-1.1.0\env\Scripts\activate.bat && python F:\vivado\Vitis\2024.2\data\embeddedsw\scripts\pyesw\\reconfig_bsp.py -d D:\ACA_Group9\hd-aca-25\visit_code\pwd_code\ps7_cortexa9_0\standalone_ps7_cortexa9_0\bsp && F:\vivado\Vitis\2024.2\tps\win64\lopper-1.1.0\env\Scripts\deactivate.bat
+22:39:02 INFO  : Domain reconfigured successfully
+22:39:02 INFO  : lopper command to regenerate BSP :python F:\vivado\Vitis\2024.2\data\embeddedsw/scripts/pyesw//regen_bsp.py -s D:\ACA_Group9\hd-aca-25\visit_code\pwd_code\hw\sdt\system-top.dts -d D:\ACA_Group9\hd-aca-25\visit_code\pwd_code\ps7_cortexa9_0\standalone_ps7_cortexa9_0\bsp -r D:\ACA_Group9\hd-aca-25\_ide\.wsdata\.repo.yaml
+22:39:02 INFO  : cmd.exe, /C, F:\vivado\Vitis\2024.2\tps\win64\lopper-1.1.0\env\Scripts\activate.bat && python F:\vivado\Vitis\2024.2\data\embeddedsw\scripts\pyesw\\regen_bsp.py -s D:\ACA_Group9\hd-aca-25\visit_code\pwd_code\hw\sdt\system-top.dts -d D:\ACA_Group9\hd-aca-25\visit_code\pwd_code\ps7_cortexa9_0\standalone_ps7_cortexa9_0\bsp -r D:\ACA_Group9\hd-aca-25\_ide\.wsdata\.repo.yaml && F:\vivado\Vitis\2024.2\tps\win64\lopper-1.1.0\env\Scripts\deactivate.bat
+22:39:15 INFO  : -- Configuring done
+22:39:15 INFO  : -- Generating done
+22:39:15 INFO  : CMake Warning:
+22:39:15 INFO  :   Manually-specified variables were not used by the project:
+22:39:15 INFO  : 
+22:39:15 INFO  :     CMAKE_TOOLCHAIN_FILE
+22:39:15 INFO  : 
+22:39:15 INFO  : 
+22:39:15 INFO  : -- Build files have been written to: D:/ACA_Group9/hd-aca-25/visit_code/pwd_code/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/build_configs/gen_bsp
+22:39:15 INFO  : Successfully created Domain at D:\ACA_Group9\hd-aca-25\visit_code\pwd_code\ps7_cortexa9_0\standalone_ps7_cortexa9_0\bsp
+22:39:15 INFO  : BSP regenerated successfully
+22:39:15 INFO  : Hardware XSA update finished successfully
+22:39:27 INFO  : clean Platform executed successfully for pwd_code
+22:39:29 INFO  : BSP build will be initiated for Domain zynq_fsbl
+22:39:29 INFO  : Generating BSP for the domain D:\ACA_Group9\hd-aca-25\visit_code\pwd_code\zynq_fsbl\zynq_fsbl_bsp
+22:39:29 INFO  : lopper command to reconfigure BSP :python F:\vivado\Vitis\2024.2\data\embeddedsw/scripts/pyesw//reconfig_bsp.py -d D:\ACA_Group9\hd-aca-25\visit_code\pwd_code\zynq_fsbl\zynq_fsbl_bsp
+22:39:29 INFO  : cmd.exe, /C, F:\vivado\Vitis\2024.2\tps\win64\lopper-1.1.0\env\Scripts\activate.bat && python F:\vivado\Vitis\2024.2\data\embeddedsw\scripts\pyesw\\reconfig_bsp.py -d D:\ACA_Group9\hd-aca-25\visit_code\pwd_code\zynq_fsbl\zynq_fsbl_bsp && F:\vivado\Vitis\2024.2\tps\win64\lopper-1.1.0\env\Scripts\deactivate.bat
+22:39:29 INFO  : BSP build will be initiated for Domain standalone_ps7_cortexa9_0
+22:39:29 INFO  : Generating BSP for the domain D:\ACA_Group9\hd-aca-25\visit_code\pwd_code\ps7_cortexa9_0\standalone_ps7_cortexa9_0\bsp
+22:39:29 INFO  : lopper command to reconfigure BSP :python F:\vivado\Vitis\2024.2\data\embeddedsw/scripts/pyesw//reconfig_bsp.py -d D:\ACA_Group9\hd-aca-25\visit_code\pwd_code\ps7_cortexa9_0\standalone_ps7_cortexa9_0\bsp
+22:39:29 INFO  : cmd.exe, /C, F:\vivado\Vitis\2024.2\tps\win64\lopper-1.1.0\env\Scripts\activate.bat && python F:\vivado\Vitis\2024.2\data\embeddedsw\scripts\pyesw\\reconfig_bsp.py -d D:\ACA_Group9\hd-aca-25\visit_code\pwd_code\ps7_cortexa9_0\standalone_ps7_cortexa9_0\bsp && F:\vivado\Vitis\2024.2\tps\win64\lopper-1.1.0\env\Scripts\deactivate.bat
+22:39:30 INFO  : Domain reconfigured successfully
+22:39:30 INFO  : Generating BSP for the domain D:\ACA_Group9\hd-aca-25\visit_code\pwd_code\ps7_cortexa9_0\standalone_ps7_cortexa9_0\bsp
+22:39:30 INFO  : lopper command to build BSP :python F:\vivado\Vitis\2024.2\data\embeddedsw/scripts/pyesw//build_bsp.py -d D:\ACA_Group9\hd-aca-25\visit_code\pwd_code\ps7_cortexa9_0\standalone_ps7_cortexa9_0\bsp
+22:39:30 INFO  : cmd.exe, /C, F:\vivado\Vitis\2024.2\tps\win64\lopper-1.1.0\env\Scripts\activate.bat && python F:\vivado\Vitis\2024.2\data\embeddedsw\scripts\pyesw\\build_bsp.py -d D:\ACA_Group9\hd-aca-25\visit_code\pwd_code\ps7_cortexa9_0\standalone_ps7_cortexa9_0\bsp && F:\vivado\Vitis\2024.2\tps\win64\lopper-1.1.0\env\Scripts\deactivate.bat
+22:39:30 INFO  : Domain reconfigured successfully
+22:39:30 INFO  : Generating BSP for the domain D:\ACA_Group9\hd-aca-25\visit_code\pwd_code\zynq_fsbl\zynq_fsbl_bsp
+22:39:30 INFO  : lopper command to build BSP :python F:\vivado\Vitis\2024.2\data\embeddedsw/scripts/pyesw//build_bsp.py -d D:\ACA_Group9\hd-aca-25\visit_code\pwd_code\zynq_fsbl\zynq_fsbl_bsp
+22:39:30 INFO  : cmd.exe, /C, F:\vivado\Vitis\2024.2\tps\win64\lopper-1.1.0\env\Scripts\activate.bat && python F:\vivado\Vitis\2024.2\data\embeddedsw\scripts\pyesw\\build_bsp.py -d D:\ACA_Group9\hd-aca-25\visit_code\pwd_code\zynq_fsbl\zynq_fsbl_bsp && F:\vivado\Vitis\2024.2\tps\win64\lopper-1.1.0\env\Scripts\deactivate.bat
+22:40:04 INFO  : Domain build successfully
+22:40:05 INFO  : Domain build successfully
+22:40:05 INFO  : Generating Boot ELFs
+22:40:05 INFO  : lopper command to retarget baremetal application :python F:\vivado\Vitis\2024.2\data\embeddedsw/scripts/pyesw//retarget_app.py -s D:\ACA_Group9\hd-aca-25\visit_code\pwd_code\zynq_fsbl -d D:\ACA_Group9\hd-aca-25\visit_code\pwd_code\zynq_fsbl\zynq_fsbl_bsp -b D:\ACA_Group9\hd-aca-25\visit_code\pwd_code\zynq_fsbl\build
+22:40:05 INFO  : cmd.exe, /C, F:\vivado\Vitis\2024.2\tps\win64\lopper-1.1.0\env\Scripts\activate.bat && python F:\vivado\Vitis\2024.2\data\embeddedsw\scripts\pyesw\\retarget_app.py -s D:\ACA_Group9\hd-aca-25\visit_code\pwd_code\zynq_fsbl -d D:\ACA_Group9\hd-aca-25\visit_code\pwd_code\zynq_fsbl\zynq_fsbl_bsp -b D:\ACA_Group9\hd-aca-25\visit_code\pwd_code\zynq_fsbl\build && F:\vivado\Vitis\2024.2\tps\win64\lopper-1.1.0\env\Scripts\deactivate.bat
+22:40:06 INFO  : Successfully retargeted Application D:\ACA_Group9\hd-aca-25\visit_code\pwd_code\zynq_fsbl
+22:40:06 INFO  : lopper command to build baremetal application :python F:\vivado\Vitis\2024.2\data\embeddedsw/scripts/pyesw//build_app.py -s D:\ACA_Group9\hd-aca-25\visit_code\pwd_code\zynq_fsbl -b D:\ACA_Group9\hd-aca-25\visit_code\pwd_code\zynq_fsbl\build
+22:40:06 INFO  : cmd.exe, /C, F:\vivado\Vitis\2024.2\tps\win64\lopper-1.1.0\env\Scripts\activate.bat && python F:\vivado\Vitis\2024.2\data\embeddedsw\scripts\pyesw\\build_app.py -s D:\ACA_Group9\hd-aca-25\visit_code\pwd_code\zynq_fsbl -b D:\ACA_Group9\hd-aca-25\visit_code\pwd_code\zynq_fsbl\build && F:\vivado\Vitis\2024.2\tps\win64\lopper-1.1.0\env\Scripts\deactivate.bat
+22:40:10 INFO  : Successfully building the baremetal applicationD:\ACA_Group9\hd-aca-25\visit_code\pwd_code\zynq_fsbl\build
+22:40:10 INFO  : Generating Export directory
+22:40:10 INFO  : Platform Build Finished successfully.
+00:01:59 INFO  : connection terminated
+00:01:59 INFO  : connection terminated
+00:01:59 INFO  : scheduling shutdown timer for 2 seconds ...
+00:02:01 INFO  : Terminating Vitis C++ Server
+00:02:01 INFO  : Vitis C++ Server terminated
+16:52:21 INFO  : updated workspace path: D:\ACA_Group9\hd-aca-25
+16:52:22 INFO  : Embedded Template List generated successfully
+16:52:22 INFO  : cmd.exe, /C, F:\vivado\Vitis\2024.2\tps\win64\lopper-1.1.0\env\Scripts\activate.bat && python F:\vivado\Vitis\2024.2\data\embeddedsw\scripts\pyesw\\get_template_data.py -d C:\Users\ZhuanZ\AppData\Local\Temp\rigel_lopper_ZhuanZ£®Œﬁ√‹¬Î£©8155317908852888849 -r D:\ACA_Group9\hd-aca-25\_ide\.wsdata\.repo.yaml && F:\vivado\Vitis\2024.2\tps\win64\lopper-1.1.0\env\Scripts\deactivate.bat
+16:52:22 INFO  : Embedded Template List generated successfully
+16:52:27 INFO  : Found no platform with name 'platform' in install repositories
+16:52:30 INFO  : Found no platform with name 'platform' in install repositories
+16:52:32 INFO  : Found no platform with name 'platform' in install repositories
+16:52:33 INFO  : Found no platform with name 'platform' in install repositories
+16:52:42 INFO  : connection terminated
+16:52:42 INFO  : connection terminated
+16:52:42 INFO  : scheduling shutdown timer for 2 seconds ...
+16:52:44 INFO  : Terminating Vitis C++ Server
+16:52:44 INFO  : Vitis C++ Server terminated
